@@ -9,17 +9,17 @@
 /* Begin PBXBuildFile section */
 		FB334AAF24731F8500687CBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB334AAE24731F8500687CBE /* AppDelegate.swift */; };
 		FB334AB124731F8500687CBE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB334AB024731F8500687CBE /* SceneDelegate.swift */; };
-		FB334AB324731F8500687CBE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB334AB224731F8500687CBE /* ViewController.swift */; };
 		FB334AB624731F8500687CBE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB334AB424731F8500687CBE /* Main.storyboard */; };
 		FB334AB824731F8900687CBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB334AB724731F8900687CBE /* Assets.xcassets */; };
 		FB334ABB24731F8900687CBE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB334AB924731F8900687CBE /* LaunchScreen.storyboard */; };
+		FB334AC42473252300687CBE /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB334AB224731F8500687CBE /* WeatherViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FB334AAB24731F8500687CBE /* NotClima.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotClima.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB334AAB24731F8500687CBE /* Clima.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clima.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB334AAE24731F8500687CBE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB334AB024731F8500687CBE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FB334AB224731F8500687CBE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FB334AB224731F8500687CBE /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		FB334AB524731F8500687CBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FB334AB724731F8900687CBE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB334ABA24731F8900687CBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -40,7 +40,7 @@
 		FB334AA224731F8500687CBE = {
 			isa = PBXGroup;
 			children = (
-				FB334AAD24731F8500687CBE /* NotClima */,
+				FB334AAD24731F8500687CBE /* Clima */,
 				FB334AAC24731F8500687CBE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,23 +48,39 @@
 		FB334AAC24731F8500687CBE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FB334AAB24731F8500687CBE /* NotClima.app */,
+				FB334AAB24731F8500687CBE /* Clima.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FB334AAD24731F8500687CBE /* NotClima */ = {
+		FB334AAD24731F8500687CBE /* Clima */ = {
 			isa = PBXGroup;
 			children = (
 				FB334AAE24731F8500687CBE /* AppDelegate.swift */,
 				FB334AB024731F8500687CBE /* SceneDelegate.swift */,
-				FB334AB224731F8500687CBE /* ViewController.swift */,
-				FB334AB424731F8500687CBE /* Main.storyboard */,
+				FB334AC32473218C00687CBE /* View */,
+				FB334AC22473213D00687CBE /* Controller */,
 				FB334AB724731F8900687CBE /* Assets.xcassets */,
 				FB334AB924731F8900687CBE /* LaunchScreen.storyboard */,
 				FB334ABC24731F8900687CBE /* Info.plist */,
 			);
-			path = NotClima;
+			path = Clima;
+			sourceTree = "<group>";
+		};
+		FB334AC22473213D00687CBE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FB334AB224731F8500687CBE /* WeatherViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FB334AC32473218C00687CBE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FB334AB424731F8500687CBE /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -84,7 +100,7 @@
 			);
 			name = NotClima;
 			productName = NotClima;
-			productReference = FB334AAB24731F8500687CBE /* NotClima.app */;
+			productReference = FB334AAB24731F8500687CBE /* Clima.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -138,8 +154,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB334AB324731F8500687CBE /* ViewController.swift in Sources */,
 				FB334AAF24731F8500687CBE /* AppDelegate.swift in Sources */,
+				FB334AC42473252300687CBE /* WeatherViewController.swift in Sources */,
 				FB334AB124731F8500687CBE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,7 +308,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.thechoygroup.NotClima;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Clima;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -310,7 +326,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.thechoygroup.NotClima;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Clima;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
