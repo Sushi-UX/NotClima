@@ -6,6 +6,9 @@
 //  Copyright © 2020 thechoygroup. All rights reserved.
 //
 
+// VIDEO 083>>>HOW_TO_CREATE_RECONFIGURE_NETWORK_URL_SESSION_TO_DECODE_JSON<<< STEP #B1.
+// Might have saved at begining of video 081 Use the URLSession for networking.
+
 import Foundation
 
 struct WeatherManager {
@@ -87,7 +90,7 @@ struct WeatherManager {
                                         //STEP #B18. decoder has an output so lets add "let decodedData =" in front of "try"
             let decodedData = try decoder.decode(WeatherData.self, from: weatherData)
                                         //STEP #B19. Now that we have "name" in a struct in a seperate file, we can try to print it in a print statement below.
-                                        //STEP #B20.Go back to the WeatherDate file...
+                                        //STEP #B20.Go back to the WeatherData file...
                                         //STEP #B24. After "print(decodeData." swap in "main.temp)" and run the app
                 print(decodedData.weather[0].description)
             } catch {
