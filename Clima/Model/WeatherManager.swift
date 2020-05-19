@@ -6,7 +6,7 @@
 //  Copyright © 2020 thechoygroup. All rights reserved.
 //
 
-// VIDEO 084>>>CREATE_WEATHERMODEL_AND_UNDERSTAND_COMPUTED_PROPERTIES<<< STEP #C1.
+// VIDEO 084>>>CREATE_WEATHERMODEL_AND_UNDERSTAND_COMPUTED_PROPERTIES<<< STEP #D1.
 // Saved at begining of video 085 Typealiases and a Protocols and Delegate Challenge.
 
 import Foundation
