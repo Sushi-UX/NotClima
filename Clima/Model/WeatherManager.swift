@@ -98,7 +98,16 @@ struct WeatherManager {
                 
                 let id = decodedData.weather[0].id
                                         //STEP #C4. Create the following in a print statement to see if it prints the name of a corresponding weather symbol icon.
-            print(getConditionName(weatherId: id))
+                                        //STEP #C11. Now that we have matched decodedDate for the weather dot id. Lets do the others.
+                let temp = decodedData.main.temp
+                let name = decodedData.name
+                
+                                        //STEP #C12. We can create a new weather object from our new weather model remember to provide internal names for the parameter.
+                let weather = Weathermodel(conditionId: id, cityName: name, temperature: temp)
+                
+//            print(getConditionName(weatherId: id))
+                                        //STEP #C13. To print the condition name now we can change this as follows.
+                print(weather.getConditionName(weatherId: id))
             } catch {
                 print(error)
         }
