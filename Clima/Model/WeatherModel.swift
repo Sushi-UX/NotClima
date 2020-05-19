@@ -20,7 +20,6 @@ struct Weathermodel {
         return String(format: "%.1f", temperature)
     }
     
-    
                         //STEP #C14. Instead of calling the WeatherId codes from this WeatherManager, we can instead create computed properties here to send to the WeatherManager.
                         //STEP #C15.Above we have our stored properties, and here lets declare a variable method named
     var conditionName: String {
