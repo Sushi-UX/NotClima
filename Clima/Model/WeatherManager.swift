@@ -6,6 +6,9 @@
 //  Copyright © 2020 thechoygroup. All rights reserved.
 //
 
+// VIDEO 084>>>CREATE_WEATHERMODEL_AND_UNDERSTAND_COMPUTED_PROPERTIES<<< STEP #C1.
+// Saved at begining of video 084 Create a WeatherModel and Understand Computed Properties.
+
 // VIDEO 083>>>HOW_TO_CREATE_RECONFIGURE_NETWORK_URL_SESSION_TO_DECODE_JSON<<< STEP #B1.
 // Might have saved at begining of video 081 Use the URLSession for networking.
 
