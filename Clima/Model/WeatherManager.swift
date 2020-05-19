@@ -9,9 +9,6 @@
 // VIDEO 084>>>CREATE_WEATHERMODEL_AND_UNDERSTAND_COMPUTED_PROPERTIES<<< STEP #C1.
 // Saved at begining of video 084 Create a WeatherModel and Understand Computed Properties.
 
-// VIDEO 083>>>HOW_TO_CREATE_RECONFIGURE_NETWORK_URL_SESSION_TO_DECODE_JSON<<< STEP #B1.
-// Might have saved at begining of video 081 Use the URLSession for networking.
-
 import Foundation
 
 struct WeatherManager {
@@ -95,10 +92,17 @@ struct WeatherManager {
                                         //STEP #B19. Now that we have "name" in a struct in a seperate file, we can try to print it in a print statement below.
                                         //STEP #B20.Go back to the WeatherData file...
                                         //STEP #B24. After "print(decodeData." swap in "main.temp)" and run the app
-                print(decodedData.weather[0].description)
+                                        //>>>CREATE_WEATHERMODEL_AND_UNDERSTAND_COMPUTED_PROPERTIES<<< STEP #C1.Go WeatherData file for next step...
+                
+                                        //STEP #C2. Lets use what we printed out to declare a constant named "id" and change the end dot notation from "description" to "id"...
+            let id = decodedData.weather[0].id
             } catch {
                 print(error)
         }
+    }
+                                        //STEP #C3. Create a method using a switch statement as the body to return a different icon for the different weather condition codes.
+    func getConditionName(weatherId: Int) -> String {
+        
     }
 }
 

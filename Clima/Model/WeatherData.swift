@@ -29,5 +29,8 @@ struct Main: Decodable {
 
 struct Weather: Decodable {
     let description: String
+                        //STEP #C1. Lets add this new property but instead of "description: String" lets use "id: Int"
+                        //STEP #C2.Go back to WeatherManager for the next step...
+    let id: Int
 }
 
