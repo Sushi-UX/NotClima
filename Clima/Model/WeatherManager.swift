@@ -95,32 +95,39 @@ struct WeatherManager {
                                         //>>>CREATE_WEATHERMODEL_AND_UNDERSTAND_COMPUTED_PROPERTIES<<< STEP #C1.Go WeatherData file for next step...
                 
                                         //STEP #C2. Lets use what we printed out to declare a constant named "id" and change the end dot notation from "description" to "id"...
-            let id = decodedData.weather[0].id
+                
+                let id = decodedData.weather[0].id
+                                        //STEP #C4. Create the following in a print statement to see if it prints the name of a corresponding weather symbol icon.
+            print(getConditionName(weatherId: id))
             } catch {
                 print(error)
         }
     }
                                         //STEP #C3. Create a method using a switch statement as the body to return a different icon for the different weather condition codes.
-    func getConditionName(weatherId: Int) -> String {
-        switch weatherId {
-        case 200...232:
-            return "cloud.bolt"
-        case 300...321:
-            return "cloud.drizzle"
-        case 500...531:
-            return "cloud.rain"
-        case 600...622:
-            return "snow"
-        case 701-771:
-            return "cloud.fog"
-        case 781:
-            return "tornado"
-        case 801...804:
-            return "cloud.sun"
-        default:
-            return "sun.max"
-        }
-    }
+                                        //STEP #C5. Let reorganize this file to be more in accordance with the MVC design pattern.
+                                        //STEP #C6. Create a new Swift file inside the "model" folder and lets name it "WeatherModel".
+                                        //STEP #C7.Go to the "WeatherModel" file for the next step...
+                                        //STEP #C9. Lets copy the whole "getConditionName" method and go back to the "weatherModel" file for the next step.
+//    func getConditionName(weatherId: Int) -> String {
+//        switch weatherId {
+//        case 200...232:
+//            return "cloud.bolt"
+//        case 300...321:
+//            return "cloud.drizzle"
+//        case 500...531:
+//            return "cloud.rain"
+//        case 600...622:
+//            return "snow"
+//        case 701-771:
+//            return "cloud.fog"
+//        case 781:
+//            return "tornado"
+//        case 801...804:
+//            return "cloud.sun"
+//        default:
+//            return "sun.max"
+//        }
+//    }
 }
 
 
