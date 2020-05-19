@@ -102,7 +102,24 @@ struct WeatherManager {
     }
                                         //STEP #C3. Create a method using a switch statement as the body to return a different icon for the different weather condition codes.
     func getConditionName(weatherId: Int) -> String {
-        
+        switch weatherId {
+        case 200...232:
+            return "cloud.bolt"
+        case 300...321:
+            return "cloud.drizzle"
+        case 500...531:
+            return "cloud.rain"
+        case 600...622:
+            return "snow"
+        case 701-771:
+            return "cloud.fog"
+        case 781:
+            return "tornado"
+        case 801...804:
+            return "cloud.sun"
+        default:
+            return "sun.max"
+        }
     }
 }
 
