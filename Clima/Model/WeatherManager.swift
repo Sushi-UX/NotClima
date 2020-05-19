@@ -107,7 +107,12 @@ struct WeatherManager {
                 
 //            print(getConditionName(weatherId: id))
                                         //STEP #C13. To print the condition name now we can change this as follows.
-                print(weather.getConditionName(weatherId: id))
+                                        //STEP #C14.Go back to the "Weathermodel" file for the next step...
+//                print(weather.getConditionName(weatherId: id))
+                
+                                        //STEP #C18. Now if we want to get the weather condition we can shorten this print statement as follows,
+                                        //STEP #C19.Go back to the "Weathermodel" file for the next step...
+                print(weather.temperatureString)
             } catch {
                 print(error)
         }
