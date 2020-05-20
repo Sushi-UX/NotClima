@@ -20,6 +20,9 @@ class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManag
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //STEP #E10. What we do have to do is to set this current class as the delegate.
+        //STEP #E11. We have to say that the "weatherManager" dot "delegate" property is equal to "self". That way our WeatherManager's property is not nil.
+        weatherManager.delegate = self
         searchTextField.delegate = self
     }
 
