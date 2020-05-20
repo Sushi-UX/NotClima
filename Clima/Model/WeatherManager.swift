@@ -1,13 +1,14 @@
 //
 //  WeatherManager.swift
 //  NotClima
+//  AKA: NotClima Master
 //
 //  Created by Raymond Choy on 5/18/20.
 //  Copyright © 2020 thechoygroup. All rights reserved.
 //
 
-// VIDEO 083>>>HOW_TO_CREATE_RECONFIGURE_NETWORK_URL_SESSION_TO_DECODE_JSON<<< STEP #B1.
-// Might have saved at begining of video 081 Use the URLSession for networking.
+// Starts at Video 081 Use the URLSession for Networking STEP #A1
+// Also includes Video 083 JSON Decoding STEP #B1
 
 import Foundation
 
@@ -41,7 +42,6 @@ struct WeatherManager {
                     print(error!)
                     return
                 }
-                
                 if let safeData = data {
                                                     //STEP #B6. Delete this declaration of dataString and this print statement.
 //let dataString = String(data: safeData, encoding: .utf8)
