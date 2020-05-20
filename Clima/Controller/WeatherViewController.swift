@@ -7,6 +7,10 @@
 //
 
 import UIKit
+                                            //>>>USING_CORELOCATION_TO_GET_LOCATION_DATA<<< STEP #J1. The first thing we must do is import Apples packet called CoreLocation
+import CoreLocation
+
+
                                             //STEP #E8. Here in this class we must now adopt that "WeatherManagerDelegate"
                                             //>>>USING_EXTENSIONS_TO_REFACTOR<<< STEP #I1. Here we can see in our "WeatherViewController" class we are using quite a few delegates so let try to split them off into their own extensions to better organize our code.
 //class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManagerDelegate {
@@ -20,12 +24,18 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var searchTextField: UITextField!
     
     var weatherManager = WeatherManager()
+                                            //STEP #J2. CoreLocation comes with something called a "locationManager" so lets add it here as a constant from the CLLocationManager class. This will be responsible for getting the current GPS location of the users mobile phone.
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //STEP #E10. What we do have to do is to set this current class as the delegate.
-        //STEP #E11. We have to say that the "weatherManager" dot "delegate" property is equal to "self". That way our WeatherManager's property is not nil.
+                                            //STEP #J3. Before we can use the "CLLocationManager" we should really first trigger a permission request as follows.
+                                            //STEP #J4. Go into the Info.plist and add a new row at the top and select "Privacy - Location When In Use Usage Description" as the key and type "We need your location to get the current weather for where you are." as the Value
+        locationManager.requestWhenInUseAuthorization()
+        
+                                            //STEP #E10. What we do have to do is to set this current class as the delegate.
+                                            //STEP #E11. We have to say that the "weatherManager" dot "delegate" property is equal to "self". That way our WeatherManager's property is not nil.
         weatherManager.delegate = self
         searchTextField.delegate = self
     }

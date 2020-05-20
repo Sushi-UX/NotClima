@@ -6,7 +6,7 @@
 //  Copyright © 2020 thechoygroup. All rights reserved.
 //
 
-// VIDEO 090>>>USING_EXTENSIONS_TO_REFACTOR<<< STEP #I1.
+// VIDEO 091>>>USING_CORELOCATION_TO_GET_LOCATION_DATA<<< STEP #J1.
 // Saved at begining of video 091 Using CoreLocation to get Location Data
 
 import Foundation
