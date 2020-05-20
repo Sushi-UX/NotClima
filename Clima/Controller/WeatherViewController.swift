@@ -57,7 +57,11 @@ class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManag
         
                                     //STEP #D10. Here lets create another method called "didUpdateWeather".
                                     //STEP #E9. Here below you can see we are not getting an error because we already implemented a function called "didUpdateWeather" which satisfies our WeatherManagerDelegate.
-    func didUpdateWeather(weather: WeatherModel) {
+                                    //STEP #F1. Lets modify our code to be more in line with how apple streamlines thier code.
+                                    //STEP #F2. In our "didUpdateWeather" method, the first parameter input should really be the "weatherManager": which is of "WeatherManager" data type.
+                                    //STEP #F3. You can notice in Apples method parameters they start thier parameters with an underscore. We can do the same in our parameters as well.
+                                    //STEP #F4.Go to the WeatherManager for the next step...
+    func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
                                     //STEP #D11. Inside lets, add the following print statement.
                                     //STEP #D12.For the next step, go back to the WeatherMagager
         print(weather.temperature)

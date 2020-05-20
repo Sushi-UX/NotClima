@@ -6,8 +6,8 @@
 //  Copyright © 2020 thechoygroup. All rights reserved.
 //
 
-// VIDEO 084>>>CREATE_WEATHERMODEL_AND_UNDERSTAND_COMPUTED_PROPERTIES<<< STEP #D1.
-// Saved at begining of video 085 Typealiases and a Protocols and Delegate Challenge.
+// VIDEO 087>>>METHOD_NAMING_CONVENTIONS_AND_ERROR_HANDLING<<< STEP #F1.
+// Saved at begining of video 087 Method naming conventions and error handling.
 
 import Foundation
 
@@ -17,7 +17,9 @@ import Foundation
                                                     //STEP #E6. The parameter inputs should be "weather" of data type Weathermodel
 
 protocol WeatherManagerDelegate {
-    func didUpdateWeather(weather: WeatherModel)
+//    func didUpdateWeather(weather: WeatherModel)
+                                                    //STEP #F4. Lets also impliment our adding of the underscore to start the parameter here as well.
+    func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel)
     }
 
 
@@ -32,10 +34,16 @@ struct WeatherManager {
         
                                                     //STEP #B8. Replace this print statement with the following performRequest code.
 //print(urlString)
-        performRequest(urlString: urlString)
+                                                    //STEP #F9. In other places you will find that Apple likes to use proper grammer.
+//        performRequest(urlString: urlString)
+                                                    //STEP #F11. Here we can swap out the first parameter input name and replace it with the word "with".
+        performRequest(with: urlString)
     }
     
-    func performRequest(urlString: String) {
+//    func performRequest(urlString: String) {
+                                                    //STEP #F10. Lets change this by adding the word "with" to start this parameter input name.
+    func performRequest(with urlString: String) {
+        
                                                     //>>>HOW_TO_CREATE_A_NETWORK_URL_SESSION<<< STEP #A1. Create a URL
         if let url = URL(string: urlString) {
                                                     //STEP #A2. Create a URLSession
@@ -63,15 +71,21 @@ struct WeatherManager {
                                                     //STEP #D2. Once we have created our weather model from our weather object, we want to be able to return it to our parseJSON.
                                                     //STEP #D3. Let add "let weather =" in front of "self.parseJSON
                                                     //STEP #D8. However we want to use this method so lets optional bind it by making it an "if let" statement.
-                    if let weather = self.parseJSON(weatherData: safeData) {
+                                                    //STEP #F6. The external parameter input name seem extranious here.
+//                    if let weather = self.parseJSON(weatherData: safeData) {
+                                                    //STEP #F8. It seems entirely possible to omit the weatherData parameter name as follows.
+                if let weather = self.parseJSON(safeData) {
+                        
+                        
                                                     //WRONG STEP #D9. To be able to pass this data to the WeatherViewController object lets add code below. But this solution would make everything a one time use and disposable like a paper plate.
 //                        let weatherVC = WeatherViewController()
 //                        weatherVC.didUpdateWeather(weather: weather)
                                                     //CORRECT STEP #E1. To solve this problem using a delegate pattern instead.
                                                     //STEP #E7. Because this is calling data from a property inside the same method we must add "self." at the beginning
                                                     //STEP #E8.Go back to WeatherViewController for the next step...
-                        self.delegate?.didUpdateWeather(weather: weather)
-                        
+//                        self.delegate?.didUpdateWeather(weather: weather)
+                                                    //STEP #F5. Here where we are using the didUpdateWeather method you can see xcode is asking us to update our parameter names. Lets add "self" as our first parameter name.
+                        self.delegate?.didUpdateWeather(self, weather: weather)
                         
                                                     //STEP #D10.Go back to WeatherViewController for the next step...
                                                     
@@ -100,7 +114,9 @@ struct WeatherManager {
                                         //STEP #B7. Create a new method called Parse JSON
                                         //STEP #D4. For #D3. to work we must create an output. Below let add an output to WeatherModel.
                                         //STEP #D8. But to "return nil" see #D7. we must make WeatherModel here an optional
-    func parseJSON(weatherData: Data) -> WeatherModel? {
+//    func parseJSON(weatherData: Data) -> WeatherModel? {
+                                        //STEP #F7. Add an underscore at the beginning of this parameter below.
+   func parseJSON(_ weatherData: Data) -> WeatherModel? {
                                         //STEP #B10. In the Model folder. Create a new Swift file and name it "WeatherData". Proceed to it for next steps.
                                         //STEP #B15.continued. Create a decoder
                                         //STEP #B16. Add the word "try"
