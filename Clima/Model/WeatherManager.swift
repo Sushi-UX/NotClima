@@ -6,7 +6,7 @@
 //  Copyright © 2020 thechoygroup. All rights reserved.
 //
 
-// VIDEO 087>>>METHOD_NAMING_CONVENTIONS_AND_ERROR_HANDLING<<< STEP #F1.
+// VIDEO 087>>>ANOTHER_DELEGATE_TO_PASS_ERRORS<<< STEP #G1.
 // Saved at begining of video 087 Method naming conventions and error handling.
 
 import Foundation
@@ -20,8 +20,11 @@ protocol WeatherManagerDelegate {
 //    func didUpdateWeather(weather: WeatherModel)
                                                     //STEP #F4. Lets also impliment our adding of the underscore to start the parameter here as well.
     func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel)
-    }
-
+                                                    //>>>ANOTHER_DELEGATE_TO_PASS_ERRORS<<< STEP #G1. Here we are going to create another delegate method now to be able to pass errors.
+                                                    //STEP #G2. Let create another func called "didFailWithError"
+                                                    //STEP #G3. The input parameter will be named "error" and that will be of data type "Error"
+    func didFailWithError(error: Error)
+}
 
 struct WeatherManager {
     let weatherURL = "https://api.openweathermap.org/data/2.5/weather?&appid=f878f193f23e2358e7daf2aa78783c4e&units=imperial"
@@ -58,10 +61,15 @@ struct WeatherManager {
                                                     //STEP #B3. Change Data? to data, Change URL? to url, Change URLResponse? to response, Change Error? to error.
                                                     //STEP #B4. Copy and paste the body of what used to be our URLResponse to now be the code of this session.dataTask.
             let task = session.dataTask(with: url) { (data, response, error) in
+                
                 if error != nil {
-                    print(error!)
+//                    print(error!)
+                                                    //STEP #G4. A good place to use our new error delegate is here. Instead of printing the error, we can pass it to the delegate.
+                                                    //STEP #G5. Because we are inside a closure we need to add "self."
+                    self.delegate?.didFailWithError(error: error!)
                     return
                 }
+                                                    
                 
                 if let safeData = data {
                                                     //STEP #B6. Delete this declaration of dataString and this print statement.
@@ -162,7 +170,10 @@ struct WeatherManager {
                                         //STEP #D6. Delete print statement below.
 //                print(weather.temperatureString)
             } catch {
-                print(error)
+//                print(error)
+                                        //STEP #G6. Another good place to use our new error delegate is here. Instead of printing the error, we can pass it to the delegate.
+                                        //STEP #G7.Go to the "WeatherViewController" for the next step...
+                delegate?.didFailWithError(error: error)
                                         //STEP #D7. We could return "nil" to get rid of this warning.
                 return nil
         }

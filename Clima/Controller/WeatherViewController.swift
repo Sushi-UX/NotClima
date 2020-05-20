@@ -68,5 +68,10 @@ class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManag
         
         }
     
+                                    //STEP #G7. Of course now that we are in the ViewController we must impliment our new didFailWithError function requirement as shown here.
+    func didFailWithError(error: Error) {
+        print(error)
     }
+    
+}
 
