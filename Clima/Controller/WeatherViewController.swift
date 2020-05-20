@@ -91,7 +91,7 @@ class WeatherViewController: UIViewController {
     
 }
 
-
+//MARK: - UITextFieldDelegate
                                     //STEP #I2. First let create an "extension" for the "WeatherManagerDelegate" and this one will inherit from "UITextFieldDelegate".
 extension WeatherViewController: UITextFieldDelegate {
                                     //STEP #I3. Inside lets copy and paste everything that deals with the UITextField including the IBAction.
@@ -124,7 +124,7 @@ extension WeatherViewController: UITextFieldDelegate {
         }
 }
 
-
+//MARK: - WeatherManagerDelegate
                                 //STEP #I5. Next we are going to create another extension for our "WeatherManagerDelegate".
                                 //STEP #I6. Again lets start by creating another extension for our "WeatherViewController"
 extension WeatherViewController: WeatherManagerDelegate {
