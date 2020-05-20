@@ -29,10 +29,14 @@ class WeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+                                            //STEP #J8. Next we must set locationManager delegate to self before all the other commands.
+        locationManager.delegate = self
         
                                             //STEP #J3. Before we can use the "CLLocationManager" we should really first trigger a permission request as follows.
                                             //STEP #J4. Go into the Info.plist and add a new row at the top and select "Privacy - Location When In Use Usage Description" as the key and type "We need your location to get the current weather for where you are." as the Value
         locationManager.requestWhenInUseAuthorization()
+                                            //STEP #J5. Now we must get the locationManager to request the location.
+        locationManager.requestLocation()
         
                                             //STEP #E10. What we do have to do is to set this current class as the delegate.
                                             //STEP #E11. We have to say that the "weatherManager" dot "delegate" property is equal to "self". That way our WeatherManager's property is not nil.
@@ -154,3 +158,18 @@ extension WeatherViewController: WeatherManagerDelegate {
     
 }
 
+//MARK: - CLLocationManagerDelegate
+                                //STEP #J6. Lets create a brand new extension for our locationManager
+extension WeatherViewController: CLLocationManagerDelegate {
+                                //STEP #J7. Now lets add the locationManager method that includes didUpdateLocations as one of the parameter inputs.
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+                                //STEP #J9. To test lets add a print statement here and run the app. Now this fails to run because we need to add the didFailWithError method.
+         print("Got location data")
+    }
+    
+                                //STEP #J10. So down here lets add a "didFailWithError" method.
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+                                //STEP #J11. In the body it will just simply return a print statement of "error".
+        print(error)
+    }
+}
