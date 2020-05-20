@@ -72,6 +72,12 @@ class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManag
                                     //STEP #H4. Because its a closure we need to add the word "self." at the beginning.
         DispatchQueue.main.async {
             self.temperatureLabel.text = weather.temperatureString
+                                    //STEP #H5. Now lets set the code for our weather condition symbol art as follows.
+                                    //STEP #H6. Remeber to choose the "systemName" parameter input option with string as the data type and again add "self." at the beginning since we are still in a closure.
+            self.conditionImageView.image = UIImage(systemName: weather.conditionName)
+                                    //STEP #H7. To send the live city name info we can copy what was done with the temperature label.
+            self.cityLabel.text = weather.cityName
+            
         }
     }
                                     //STEP #G7. Of course now that we are in the ViewController we must impliment our new didFailWithError function requirement as shown here.
