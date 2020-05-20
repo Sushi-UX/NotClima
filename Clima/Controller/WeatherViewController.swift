@@ -7,7 +7,7 @@
 //
 
 import UIKit
-                                            //>>>USING_CORELOCATION_TO_GET_LOCATION_DATA<<< STEP #J1. The first thing we must do is import Apples packet called CoreLocation
+                                            //>>>USING_CORELOCATION_TO_GET_LOCATION_DATA<<< STEP #J1. The first thing we must do is import Apples packet called CoreLocation. Also remember to import CoreLocation on the WeatherManager file as well!!!!!
 import CoreLocation
 
 
@@ -44,7 +44,12 @@ class WeatherViewController: UIViewController {
         searchTextField.delegate = self
     }
 
-//    @IBAction func searchPressed(_ sender: UIButton) {
+                                            //STEP #J18. Open the Main.storyboard, then click and drag from the find location button to the WeatherViewController to create an IBAction and name it locationPressed.
+    @IBAction func locationPressed(_ sender: UIButton) {
+                                            //STEP #J19. Lets add locationManager.requestLocation but for it to work we need to stop the updating of the location manager in 2 places.
+        locationManager.requestLocation()
+    }
+    //    @IBAction func searchPressed(_ sender: UIButton) {
 //        searchTextField.endEditing(true)
 //        print(searchTextField.text!)
 //    }
@@ -164,7 +169,22 @@ extension WeatherViewController: CLLocationManagerDelegate {
                                 //STEP #J7. Now lets add the locationManager method that includes didUpdateLocations as one of the parameter inputs.
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
                                 //STEP #J9. To test lets add a print statement here and run the app. Now this fails to run because we need to add the didFailWithError method.
-         print("Got location data")
+//         print("Got location data")
+                                //STEP #J12. Now to actually see a location we can use the following code.
+//        let location = locations.last
+                                //STEP #J13. Because ".last" is an optional we need to optionally bind this as follows.
+        if let location = locations.last {
+                                //STEP #J14. Inside lets add the following...
+                                //STEP #J20. Lets add some code to stop updating location here
+            locationManager.stopUpdatingLocation()
+            let lat = location.coordinate.latitude
+            let lon = location.coordinate.longitude
+//            print(lat)
+//            print(lon)
+                                //STEP #J15. Instead of the print statements lets call the lat and lon from a method called fetchWeather
+                                //STEP #J16.Go to the WeatherManager for the next step...
+            weatherManager.fetchWeather(latitude: lat, longitude: lon)
+        }
     }
     
                                 //STEP #J10. So down here lets add a "didFailWithError" method.

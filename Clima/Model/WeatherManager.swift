@@ -10,6 +10,7 @@
 // Saved at begining of video 091 Using CoreLocation to get Location Data
 
 import Foundation
+import CoreLocation
 
                                                     //>>>PASS_DATA_TO_THE_VIEW_CONTROLLER_USING_A_PROTOCOL_FOR_A_DELEGATE<<< STEP #E3. By convention we create the protocol in the same file that will use the protocol.
                                                     //STEP #E4. Lets create a protocol with the same name as the variable delegate we declared below "WeatherManagerDelegate".
@@ -34,12 +35,20 @@ struct WeatherManager {
     
     func fetchWeather(cityName: String) {
         let urlString = "\(weatherURL)&q=\(cityName)"
-        
+        performRequest(with: urlString)
+    }
                                                     //STEP #B8. Replace this print statement with the following performRequest code.
 //print(urlString)
                                                     //STEP #F9. In other places you will find that Apple likes to use proper grammer.
 //        performRequest(urlString: urlString)
                                                     //STEP #F11. Here we can swap out the first parameter input name and replace it with the word "with".
+
+    
+                                                    //STEP #J17. Above we already have a method to fetch the weather using a cityName. We can create another method using the same name as long as we use a different parameter. For the lat and lon we must go to WeatherViewController and hold option to click on "lon" and "lat" to see that we need to use "CLLocationDegrees" data type in this parameter.
+                                                    //STEP #J18.Go to the "WeatherViewController" for the next step...
+    
+    func fetchWeather(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
+        let urlString = "\(weatherURL)&lat=\(latitude)&lon=\(longitude)"
         performRequest(with: urlString)
     }
     
@@ -207,4 +216,5 @@ struct WeatherManager {
 
 
     
+
 
