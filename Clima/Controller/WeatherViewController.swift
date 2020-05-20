@@ -64,10 +64,16 @@ class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManag
     func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
                                     //STEP #D11. Inside lets, add the following print statement.
                                     //STEP #D12.For the next step, go back to the WeatherMagager
-        print(weather.temperature)
-        
+//        print(weather.temperature)
+                                    //>>>UPDATING_THE_UI_BY_USING_THE_DISPATCHQUEUE<<< STEP #H1. Now that we are able to get a hold of the live weather data inside our didUpdateWeather method, lets try to use some of this data to set our user interface.
+                                    //STEP #H2. The first thing we want to set is the "temperatureLabel" and if we just try setting it to equal "weather.temperatureString", it will just crash.
+//        temperatureLabel.text = weather.temperatureString
+                                    //STEP #H3. If you click on the error message question mark symbol it will basically say the reason it crashes is because we are trying to complete a task inside the Completion Handler. The Completion Handler is for long tasks only. These long running tasks should be handled in the background. So Apple tells us we need to wrap our task inside a dispatchQueue closure. Lets do that.
+                                    //STEP #H4. Because its a closure we need to add the word "self." at the beginning.
+        DispatchQueue.main.async {
+            self.temperatureLabel.text = weather.temperatureString
         }
-    
+    }
                                     //STEP #G7. Of course now that we are in the ViewController we must impliment our new didFailWithError function requirement as shown here.
     func didFailWithError(error: Error) {
         print(error)

@@ -6,8 +6,8 @@
 //  Copyright © 2020 thechoygroup. All rights reserved.
 //
 
-// VIDEO 087>>>ANOTHER_DELEGATE_TO_PASS_ERRORS<<< STEP #G1.
-// Saved at begining of video 087 Method naming conventions and error handling.
+// VIDEO 088>>>UPDATING_THE_UI_BY_USING_THE_DISPATCHQUEUE<<< STEP #H1.
+// Saved at begining of video 088 Updating the UI by Using the DispatchQueue.
 
 import Foundation
 
