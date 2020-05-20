@@ -9,7 +9,7 @@
 import Foundation
 
                         //STEP #C7. Lets create a struct named "WeatherModel".
-struct Weathermodel {
+struct WeatherModel {
                         //STEP #C8. Lets create 3 constant properties with data types as follows.
     let conditionId: Int
     let cityName: String

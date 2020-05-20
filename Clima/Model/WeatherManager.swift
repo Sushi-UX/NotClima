@@ -11,13 +11,26 @@
 
 import Foundation
 
+                                                    //>>>PASS_DATA_TO_THE_VIEW_CONTROLLER_USING_A_PROTOCOL_FOR_A_DELEGATE<<< STEP #E3. By convention we create the protocol in the same file that will use the protocol.
+                                                    //STEP #E4. Lets create a protocol with the same name as the variable delegate we declared below "WeatherManagerDelegate".
+                                                    //STEP #E5. And the requirement of this protocol will be to the ability to perform the "didUpdateWeather" function.
+                                                    //STEP #E6. The parameter inputs should be "weather" of data type Weathermodel
+
+protocol WeatherManagerDelegate {
+    func didUpdateWeather(weather: WeatherModel)
+    }
+
+
 struct WeatherManager {
     let weatherURL = "https://api.openweathermap.org/data/2.5/weather?&appid=f878f193f23e2358e7daf2aa78783c4e&units=imperial"
+    
+                                                    //STEP #E2. To make a delegate work we would need a "WeatherManagerDelegate?" so whoever picks up this task must have the ability to perform the WeatherManagerDelegate task.
+    var delegate: WeatherManagerDelegate?
     
     func fetchWeather(cityName: String) {
         let urlString = "\(weatherURL)&q=\(cityName)"
         
-//STEP #B8. Replace this print statement with the following performRequest code.
+                                                    //STEP #B8. Replace this print statement with the following performRequest code.
 //print(urlString)
         performRequest(urlString: urlString)
     }
@@ -47,7 +60,22 @@ struct WeatherManager {
 //let dataString = String(data: safeData, encoding: .utf8)
 //print(dataString)
                                                     //STEP #B9. Replace it with an actual parse of the JSONs(IKEA flat pack) values and data starting with the following self.parseJSON code...
-                    self.parseJSON(weatherData: safeData)
+                                                    //STEP #D2. Once we have created our weather model from our weather object, we want to be able to return it to our parseJSON.
+                                                    //STEP #D3. Let add "let weather =" in front of "self.parseJSON
+                                                    //STEP #D8. However we want to use this method so lets optional bind it by making it an "if let" statement.
+                    if let weather = self.parseJSON(weatherData: safeData) {
+                                                    //WRONG STEP #D9. To be able to pass this data to the WeatherViewController object lets add code below. But this solution would make everything a one time use and disposable like a paper plate.
+//                        let weatherVC = WeatherViewController()
+//                        weatherVC.didUpdateWeather(weather: weather)
+                                                    //CORRECT STEP #E1. To solve this problem using a delegate pattern instead.
+                                                    //STEP #E7. Because this is calling data from a property inside the same method we must add "self." at the beginning
+                                                    //STEP #E8.Go back to WeatherViewController for the next step...
+                        self.delegate?.didUpdateWeather(weather: weather)
+                        
+                        
+                                                    //STEP #D10.Go back to WeatherViewController for the next step...
+                                                    
+                    }
                 }
             }
                                                     //STEP #A4. Start the task
@@ -70,7 +98,9 @@ struct WeatherManager {
    
     
                                         //STEP #B7. Create a new method called Parse JSON
-    func parseJSON(weatherData: Data) {
+                                        //STEP #D4. For #D3. to work we must create an output. Below let add an output to WeatherModel.
+                                        //STEP #D8. But to "return nil" see #D7. we must make WeatherModel here an optional
+    func parseJSON(weatherData: Data) -> WeatherModel? {
                                         //STEP #B10. In the Model folder. Create a new Swift file and name it "WeatherData". Proceed to it for next steps.
                                         //STEP #B15.continued. Create a decoder
                                         //STEP #B16. Add the word "try"
@@ -103,8 +133,9 @@ struct WeatherManager {
                 let name = decodedData.name
                 
                                         //STEP #C12. We can create a new weather object from our new weather model remember to provide internal names for the parameter.
-                let weather = Weathermodel(conditionId: id, cityName: name, temperature: temp)
-                
+                let weather = WeatherModel(conditionId: id, cityName: name, temperature: temp)
+                                        //STEP #D5. We could add "return weather" here but if this block doesn't run then there will be an error.
+                return weather
 //            print(getConditionName(weatherId: id))
                                         //STEP #C13. To print the condition name now we can change this as follows.
                                         //STEP #C14.Go back to the "Weathermodel" file for the next step...
@@ -112,9 +143,12 @@ struct WeatherManager {
                 
                                         //STEP #C18. Now if we want to get the weather condition we can shorten this print statement as follows,
                                         //STEP #C19.Go back to the "Weathermodel" file for the next step...
-                print(weather.temperatureString)
+                                        //STEP #D6. Delete print statement below.
+//                print(weather.temperatureString)
             } catch {
                 print(error)
+                                        //STEP #D7. We could return "nil" to get rid of this warning.
+                return nil
         }
     }
                                         //STEP #C3. Create a method using a switch statement as the body to return a different icon for the different weather condition codes.

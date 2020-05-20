@@ -7,8 +7,8 @@
 //
 
 import UIKit
-
-class WeatherViewController: UIViewController, UITextFieldDelegate {
+                                            //STEP #E8. Here in this class we must now adopt that "WeatherManagerDelegate"
+class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManagerDelegate {
 
     @IBOutlet weak var conditionImageView: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -52,7 +52,14 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
             searchTextField.text = ""
         }
         
-
+                                    //STEP #D10. Here lets create another method called "didUpdateWeather".
+                                    //STEP #E9. Here below you can see we are not getting an error because we already implemented a function called "didUpdateWeather" which satisfies our WeatherManagerDelegate.
+    func didUpdateWeather(weather: WeatherModel) {
+                                    //STEP #D11. Inside lets, add the following print statement.
+                                    //STEP #D12.For the next step, go back to the WeatherMagager
+        print(weather.temperature)
         
+        }
+    
     }
 
